@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dm0bjrfqf5qxl"]
+[gd_scene load_steps=7 format=3 uid="uid://dm0bjrfqf5qxl"]
 
 [ext_resource type="Texture2D" uid="uid://cwv0fppnchnbp" path="res://icon.svg" id="1_kqc1o"]
 [ext_resource type="Script" path="res://scenes/character/player/player_input.gd" id="2_kvt24"]
 [ext_resource type="Script" path="res://scenes/character/movement.gd" id="3_nxq0g"]
+[ext_resource type="Script" path="res://scenes/character/player/player_attack.gd" id="4_ji0j6"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cb5x3"]
 animations = [{
@@ -12,6 +13,27 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"heavy_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"light_attack",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -35,3 +57,8 @@ script = ExtResource("3_nxq0g")
 input = NodePath("../PlayerInput")
 body = NodePath("..")
 move_speed = 200.0
+
+[node name="PlayerAttack" type="Node" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
+script = ExtResource("4_ji0j6")
+input = NodePath("../PlayerInput")
+animated_sprite = NodePath("../Sprite2D")
