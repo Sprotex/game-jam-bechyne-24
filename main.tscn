@@ -22,58 +22,61 @@ size = Vector2(1920, 1080)
 
 [node name="Main" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Static" type="Node2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Static"]
 texture = ExtResource("1_fjs85")
 centered = false
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="Static"]
 position = Vector2(967, 615)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Static"]
 position = Vector2(965, 1096)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D4"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Static"]
 position = Vector2(104, 818)
 rotation = -0.652446
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Static"]
 position = Vector2(1535, 619)
 rotation = 0.627044
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D3"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+[node name="StaticBody2D5" type="StaticBody2D" parent="Static"]
 position = Vector2(-11, 710)
 rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D5"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+[node name="StaticBody2D6" type="StaticBody2D" parent="Static"]
 position = Vector2(1934, 744)
 rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D6"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
 position = Vector2(577, 650)
 limit_left = 1
 limit_top = 1
