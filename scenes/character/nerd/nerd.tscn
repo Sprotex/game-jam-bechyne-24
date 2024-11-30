@@ -48,20 +48,23 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
-radius = 64.0
-height = 128.0
+radius = 18.0
+height = 88.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1pf33"]
 radius = 500.0
 
 [node name="Nerd" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.647, 0.647)
+position = Vector2(16, -214)
 sprite_frames = SubResource("SpriteFrames_hbgck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+position = Vector2(-7, 0)
+rotation = -1.57079
 shape = SubResource("CapsuleShape2D_cocjj")
 
 [node name="AIInput" type="Node" parent="."]
@@ -109,9 +112,12 @@ script = ExtResource("11_anxx3")
 state = NodePath("../../StateChart/CompoundState/WaitingForPlayerDistance")
 
 [node name="Area2D" type="Area2D" parent="StateLogic/WaitingForPlayerDistance"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StateLogic/WaitingForPlayerDistance/Area2D"]
 shape = SubResource("CircleShape2D_1pf33")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
 
 [connection signal="state_exited" from="StateChart/CompoundState/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_exited"]
 [connection signal="state_processing" from="StateChart/CompoundState/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_processing"]

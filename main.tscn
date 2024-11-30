@@ -1,39 +1,125 @@
-[gd_scene load_steps=6 format=3 uid="uid://d7rvxfjaj7en"]
+[gd_scene load_steps=11 format=3 uid="uid://d7rvxfjaj7en"]
 
-[ext_resource type="Texture2D" uid="uid://btjnrhj2u2e37" path="res://scenes/assets/pozadi_trida_1.png" id="1_3xfva"]
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="1_bl8ku"]
+[ext_resource type="Texture2D" uid="uid://cumh2gur7f1wi" path="res://assets/pozadi_třída_.png" id="1_fjs85"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_0t56v"]
 [ext_resource type="PackedScene" uid="uid://dndit0ynl313x" path="res://scenes/character/nerd/nerd.tscn" id="3_kojxl"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="5_f7wjf"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_2yngx"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_khi5o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruprp"]
+size = Vector2(2522, 20)
+
+[sub_resource type="Resource" id="Resource_fa6gi"]
+script = ExtResource("7_khi5o")
+duration = 1.0
+transition = 0
+ease = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dpwj"]
+size = Vector2(1920, 1080)
 
 [node name="Main" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("1_3xfva")
+texture = ExtResource("1_fjs85")
 centered = false
+region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
-[node name="Player" parent="." instance=ExtResource("1_bl8ku")]
-position = Vector2(560, 608)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(967, 615)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ruprp")
+debug_color = Color(0.97088, 0, 0.451747, 0.42)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(965, 1096)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_ruprp")
+debug_color = Color(0.97088, 0, 0.451747, 0.42)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(104, 818)
+rotation = -0.652446
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_ruprp")
+debug_color = Color(0.97088, 0, 0.451747, 0.42)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(1535, 619)
+rotation = 0.627044
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_ruprp")
+debug_color = Color(0.97088, 0, 0.451747, 0.42)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(-11, 710)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+shape = SubResource("RectangleShape2D_ruprp")
+debug_color = Color(0.97088, 0, 0.451747, 0.42)
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(1934, 744)
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+shape = SubResource("RectangleShape2D_ruprp")
+debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-physics_interpolation_mode = 1
-position = Vector2(560, 608)
+position = Vector2(577, 650)
+limit_left = 1
+limit_top = 1
+limit_right = 1921
+limit_bottom = 1081
+editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300
 process_physics_priority = 300
 script = ExtResource("3_0t56v")
 
-[node name="Nerd" parent="." instance=ExtResource("3_kojxl")]
-position = Vector2(1185, 627)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="StateChartDebugger" parent="CanvasLayer" instance=ExtResource("5_f7wjf")]
 offset_left = -4.0
 offset_top = 2.0
 offset_right = -513.0
 offset_bottom = -296.0
-initial_node_to_watch = NodePath("../../Nerd/StateChart")
+initial_node_to_watch = NodePath("../../YSort/Nerd/StateChart")
 
-[editable path="Nerd"]
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="YSort" instance=ExtResource("1_bl8ku")]
+position = Vector2(350, 850)
+
+[node name="Nerd" parent="YSort" instance=ExtResource("3_kojxl")]
+position = Vector2(1624, 862)
+
+[node name="CameraManager" type="Node2D" parent="."]
+
+[node name="PhantomCamera2D" type="Node2D" parent="CameraManager" node_paths=PackedStringArray("follow_target")]
+position = Vector2(577, 650)
+script = ExtResource("6_2yngx")
+follow_mode = 2
+follow_target = NodePath("../../YSort/Player")
+tween_resource = SubResource("Resource_fa6gi")
+tween_on_load = false
+follow_offset = Vector2(0, -200)
+draw_limits = true
+limit_target = NodePath("../CollisionShape2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager"]
+position = Vector2(960.5, 541)
+shape = SubResource("RectangleShape2D_1dpwj")
+
+[editable path="YSort/Nerd"]
