@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cce4ye5ap2cf8"
-path="res://.godot/imported/stolek.png-20436125ea89afb93dd24730649dd7fc.ctex"
+uid="uid://bxjdrnftr8gfd"
+path="res://.godot/imported/pozadi_třída.png-ca97c1d8c29c62e727358974ef4c3668.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/stolek.png"
-dest_files=["res://.godot/imported/stolek.png-20436125ea89afb93dd24730649dd7fc.ctex"]
+source_file="res://assets/wave1/pozadi_třída.png"
+dest_files=["res://.godot/imported/pozadi_třída.png-ca97c1d8c29c62e727358974ef4c3668.ctex"]
 
 [params]
 

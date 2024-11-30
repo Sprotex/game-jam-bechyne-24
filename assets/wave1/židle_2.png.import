@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4xvkb1pqne8v"
-path="res://.godot/imported/židle_1.png-c4f2d54b88eb7d295f81082c958dc188.ctex"
+uid="uid://d065ujybr7tuy"
+path="res://.godot/imported/židle_2.png-104529761b993919dc015c4a617cb758.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/židle_1.png"
-dest_files=["res://.godot/imported/židle_1.png-c4f2d54b88eb7d295f81082c958dc188.ctex"]
+source_file="res://assets/wave1/židle_2.png"
+dest_files=["res://.godot/imported/židle_2.png-104529761b993919dc015c4a617cb758.ctex"]
 
 [params]
 

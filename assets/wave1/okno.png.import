@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cumh2gur7f1wi"
-path="res://.godot/imported/pozadi_třída_.png-8a61b141084449bfcdf6aef4b1f2b1e2.ctex"
+uid="uid://0shac1m7510c"
+path="res://.godot/imported/okno.png-67cf761ea16892f3df15579ebf706cdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/pozadi_třída_.png"
-dest_files=["res://.godot/imported/pozadi_třída_.png-8a61b141084449bfcdf6aef4b1f2b1e2.ctex"]
+source_file="res://assets/wave1/okno.png"
+dest_files=["res://.godot/imported/okno.png-67cf761ea16892f3df15579ebf706cdb.ctex"]
 
 [params]
 

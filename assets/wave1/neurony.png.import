@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8d5aernwf33a"
-path="res://.godot/imported/skřín.png-dfc71da5e7dffa33376a91c1c04debf6.ctex"
+uid="uid://cxcdud2vqolby"
+path="res://.godot/imported/neurony.png-28ced974c7f9654af32a406c06802eb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/skřín.png"
-dest_files=["res://.godot/imported/skřín.png-dfc71da5e7dffa33376a91c1c04debf6.ctex"]
+source_file="res://assets/wave1/neurony.png"
+dest_files=["res://.godot/imported/neurony.png-28ced974c7f9654af32a406c06802eb9.ctex"]
 
 [params]
 

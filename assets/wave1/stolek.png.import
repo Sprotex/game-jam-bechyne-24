@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxcdud2vqolby"
-path="res://.godot/imported/neurony.png-035803e348b8e95191e7f6ff2cddcb21.ctex"
+uid="uid://cce4ye5ap2cf8"
+path="res://.godot/imported/stolek.png-138445b26fed8859c72274de5021a7f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/neurony.png"
-dest_files=["res://.godot/imported/neurony.png-035803e348b8e95191e7f6ff2cddcb21.ctex"]
+source_file="res://assets/wave1/stolek.png"
+dest_files=["res://.godot/imported/stolek.png-138445b26fed8859c72274de5021a7f6.ctex"]
 
 [params]
 
