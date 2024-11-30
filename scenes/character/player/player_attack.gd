@@ -1,9 +1,10 @@
 extends Node
 
 @export var input: PlayerInput
-@export var animated_sprite: AnimatedSprite2D
+@export var animated_sprite: AnimationPrioritiesPlayer
 @export var damage_mean := 20.0
 @export var damage_variation := 10.0
+
 
 func _ready() -> void:
 	input.on_light_attack_input.connect(_handle_light_attack)
@@ -12,14 +13,14 @@ func _ready() -> void:
 
 func _return_to_default_after_animation() -> void:
 	animated_sprite.animation_finished.connect(func(): 
-		animated_sprite.play(PlayerConstants.ANIMATION_DEFAULT_KEY), CONNECT_ONE_SHOT)
+		animated_sprite.play(PlayerConstants.ANIMATION_DEFAULT_KEY, AnimationConstants.PRIORITY_RESET), CONNECT_ONE_SHOT)
 
 
 func _handle_light_attack() -> void:
 	_return_to_default_after_animation()
-	animated_sprite.play(PlayerConstants.ANIMATION_HEAVY_KEY)
+	animated_sprite.play(PlayerConstants.ANIMATION_HEAVY_KEY, AnimationConstants.PRIORITY_ATTACK)
 
 
 func _handle_heavy_attack() -> void:
 	_return_to_default_after_animation()
-	animated_sprite.play(PlayerConstants.ANIMATION_HEAVY_KEY)
+	animated_sprite.play(PlayerConstants.ANIMATION_HEAVY_KEY, AnimationConstants.PRIORITY_ATTACK)

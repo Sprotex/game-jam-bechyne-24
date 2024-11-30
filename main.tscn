@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d7rvxfjaj7en"]
+[gd_scene load_steps=5 format=3 uid="uid://d7rvxfjaj7en"]
 
+[ext_resource type="Texture2D" uid="uid://btjnrhj2u2e37" path="res://scenes/assets/pozadi_trida_1.png" id="1_3xfva"]
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="1_bl8ku"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_0t56v"]
+[ext_resource type="PackedScene" uid="uid://dndit0ynl313x" path="res://scenes/character/nerd/nerd.tscn" id="3_kojxl"]
 
 [node name="Main" type="Node2D"]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3xfva")
+centered = false
+
 [node name="Player" parent="." instance=ExtResource("1_bl8ku")]
-position = Vector2(593, 335)
+position = Vector2(560, 608)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("3_0t56v")
+
+[node name="Nerd" parent="." instance=ExtResource("3_kojxl")]
+position = Vector2(1185, 627)

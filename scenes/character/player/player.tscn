@@ -1,15 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://dm0bjrfqf5qxl"]
+[gd_scene load_steps=12 format=3 uid="uid://dm0bjrfqf5qxl"]
 
-[ext_resource type="Texture2D" uid="uid://cwv0fppnchnbp" path="res://icon.svg" id="1_kqc1o"]
+[ext_resource type="Texture2D" uid="uid://0ng6s53stafv" path="res://scenes/character/jock.png" id="1_n30go"]
+[ext_resource type="Texture2D" uid="uid://hg8875vxr4up" path="res://scenes/character/jock_side.png" id="2_75p2a"]
 [ext_resource type="Script" path="res://scenes/character/player/player_input.gd" id="2_kvt24"]
 [ext_resource type="Script" path="res://scenes/character/movement.gd" id="3_nxq0g"]
 [ext_resource type="Script" path="res://scenes/character/player/player_attack.gd" id="4_ji0j6"]
+[ext_resource type="Script" path="res://scenes/character/player/animation_priority_player.gd" id="6_mas5q"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_fndfv"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_7ncjy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cb5x3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_kqc1o")
+"texture": ExtResource("1_n30go")
 }],
 "loop": true,
 "name": &"default",
@@ -31,7 +35,10 @@ animations = [{
 "name": &"light_attack",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_75p2a")
+}],
 "loop": true,
 "name": &"walk",
 "speed": 5.0
@@ -41,10 +48,18 @@ animations = [{
 radius = 64.0
 height = 128.0
 
+[sub_resource type="Resource" id="Resource_aay1r"]
+script = ExtResource("8_7ncjy")
+duration = 1.0
+transition = 0
+ease = 2
+
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.647, 0.647)
 sprite_frames = SubResource("SpriteFrames_cb5x3")
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cocjj")
@@ -62,3 +77,11 @@ move_speed = 200.0
 script = ExtResource("4_ji0j6")
 input = NodePath("../PlayerInput")
 animated_sprite = NodePath("../Sprite2D")
+
+[node name="Animation" type="Node" parent="." node_paths=PackedStringArray("animated_sprite")]
+script = ExtResource("6_mas5q")
+animated_sprite = NodePath("../Sprite2D")
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+script = ExtResource("7_fndfv")
+tween_resource = SubResource("Resource_aay1r")

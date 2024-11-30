@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dndit0ynl313x"]
+
+[ext_resource type="Texture2D" uid="uid://dnxwnp314802g" path="res://scenes/character/nerd/nerd.png" id="1_rnhlp"]
+[ext_resource type="Texture2D" uid="uid://jcnrv3mgixjc" path="res://scenes/character/nerd/nerd_side.png" id="2_xgn2y"]
+[ext_resource type="Script" path="res://scenes/character/player/player_input.gd" id="3_ydugn"]
+[ext_resource type="Script" path="res://scenes/character/movement.gd" id="4_56cqt"]
+[ext_resource type="Script" path="res://scenes/character/player/player_attack.gd" id="5_umptg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hbgck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rnhlp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"heavy_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"light_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xgn2y")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
+radius = 64.0
+height = 128.0
+
+[node name="Nerd" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.647, 0.647)
+sprite_frames = SubResource("SpriteFrames_hbgck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_cocjj")
+
+[node name="PlayerInput" type="Node" parent="."]
+script = ExtResource("3_ydugn")
+
+[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("input", "body")]
+script = ExtResource("4_56cqt")
+input = NodePath("../PlayerInput")
+body = NodePath("..")
+move_speed = 0.0
+
+[node name="PlayerAttack" type="Node" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
+script = ExtResource("5_umptg")
+input = NodePath("../PlayerInput")
+animated_sprite = NodePath("../Sprite2D")
