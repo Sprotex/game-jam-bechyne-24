@@ -1,4 +1,5 @@
 extends Node
+class_name CharacterAttack
 
 @export var input: CharacterInput
 @export var animated_sprite: AnimationPrioritiesPlayer

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dndit0ynl313x"]
+[gd_scene load_steps=16 format=3 uid="uid://dndit0ynl313x"]
 
 [ext_resource type="Texture2D" uid="uid://dnxwnp314802g" path="res://scenes/character/nerd/nerd.png" id="1_rnhlp"]
 [ext_resource type="Texture2D" uid="uid://jcnrv3mgixjc" path="res://scenes/character/nerd/nerd_side.png" id="2_xgn2y"]
@@ -11,6 +11,10 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="10_18ok4"]
 [ext_resource type="Script" path="res://scenes/character/nerd/waiting_for_distance_tracking.gd" id="11_anxx3"]
 [ext_resource type="Script" path="res://scenes/character/nerd/follow_player_logic.gd" id="11_gyf2i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
+radius = 18.0
+height = 88.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hbgck"]
 animations = [{
@@ -47,25 +51,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
-radius = 18.0
-height = 88.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_1pf33"]
-radius = 500.0
+radius = 400.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbgey"]
+radius = 22.0
+height = 102.0
 
 [node name="Nerd" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 4
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(16, -214)
-sprite_frames = SubResource("SpriteFrames_hbgck")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, 0)
 rotation = -1.57079
 shape = SubResource("CapsuleShape2D_cocjj")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+position = Vector2(214, 22.9987)
+rotation = 1.57079
+sprite_frames = SubResource("SpriteFrames_hbgck")
 
 [node name="AIInput" type="Node" parent="."]
 script = ExtResource("3_w0yip")
@@ -79,25 +84,25 @@ move_speed = 50.0
 [node name="Attack" type="Node" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
 script = ExtResource("5_umptg")
 input = NodePath("../AIInput")
-animated_sprite = NodePath("../Sprite2D")
+animated_sprite = NodePath("../CollisionShape2D/Sprite2D")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("7_8jni1")
 
-[node name="CompoundState" type="Node" parent="StateChart"]
+[node name="MovementLogic" type="Node" parent="StateChart"]
 script = ExtResource("8_k3ctp")
 initial_state = NodePath("WaitingForPlayerDistance")
 
-[node name="WaitingForPlayerDistance" type="Node" parent="StateChart/CompoundState"]
+[node name="WaitingForPlayerDistance" type="Node" parent="StateChart/MovementLogic"]
 script = ExtResource("9_hnlja")
 
-[node name="ToFollowPlayer" type="Node" parent="StateChart/CompoundState/WaitingForPlayerDistance"]
+[node name="ToFollowPlayer" type="Node" parent="StateChart/MovementLogic/WaitingForPlayerDistance"]
 script = ExtResource("10_18ok4")
 to = NodePath("../../FollowPlayer")
 event = &"transition_to_follow_player"
 delay_in_seconds = "0.0"
 
-[node name="FollowPlayer" type="Node" parent="StateChart/CompoundState"]
+[node name="FollowPlayer" type="Node" parent="StateChart/MovementLogic"]
 script = ExtResource("9_hnlja")
 
 [node name="StateLogic" type="Node2D" parent="."]
@@ -109,16 +114,26 @@ input = NodePath("../../AIInput")
 
 [node name="WaitingForPlayerDistance" type="Node2D" parent="StateLogic" node_paths=PackedStringArray("state")]
 script = ExtResource("11_anxx3")
-state = NodePath("../../StateChart/CompoundState/WaitingForPlayerDistance")
+state = NodePath("../../StateChart/MovementLogic/WaitingForPlayerDistance")
 
 [node name="Area2D" type="Area2D" parent="StateLogic/WaitingForPlayerDistance"]
-visible = false
+position = Vector2(-23, -357)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StateLogic/WaitingForPlayerDistance/Area2D"]
+position = Vector2(-3, 146)
 shape = SubResource("CircleShape2D_1pf33")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="HitBoxArea2D" type="Area2D" parent="."]
+rotation = -1.57079
+collision_layer = 4
+collision_mask = 2
 
-[connection signal="state_exited" from="StateChart/CompoundState/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_exited"]
-[connection signal="state_processing" from="StateChart/CompoundState/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_processing"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea2D"]
+position = Vector2(-1.55489e-05, -7)
+shape = SubResource("CapsuleShape2D_wbgey")
+
+[connection signal="state_exited" from="StateChart/MovementLogic/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_exited"]
+[connection signal="state_processing" from="StateChart/MovementLogic/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_processing"]
 [connection signal="body_entered" from="StateLogic/WaitingForPlayerDistance/Area2D" to="StateLogic/WaitingForPlayerDistance" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="HitBoxArea2D" to="AIInput" method="_on_hit_box_area_2d_body_entered"]
+[connection signal="body_exited" from="HitBoxArea2D" to="AIInput" method="_on_hit_box_area_2d_body_exited"]
