@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://d7rvxfjaj7en"]
+[gd_scene load_steps=14 format=3 uid="uid://d7rvxfjaj7en"]
 
+[ext_resource type="Texture2D" uid="uid://cxcdud2vqolby" path="res://assets/neurony.png" id="1_8m63f"]
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="1_bl8ku"]
-[ext_resource type="Texture2D" uid="uid://cumh2gur7f1wi" path="res://assets/pozadi_třída_.png" id="1_fjs85"]
+[ext_resource type="Script" path="res://shake.gd" id="2_27spc"]
+[ext_resource type="Texture2D" uid="uid://bxjdrnftr8gfd" path="res://assets/pozadi_třída.png" id="2_rqgbh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_0t56v"]
 [ext_resource type="PackedScene" uid="uid://dndit0ynl313x" path="res://scenes/character/nerd/nerd.tscn" id="3_kojxl"]
+[ext_resource type="Texture2D" uid="uid://0shac1m7510c" path="res://assets/okno.png" id="3_xgyko"]
 [ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="5_f7wjf"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_2yngx"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_khi5o"]
@@ -24,54 +27,83 @@ size = Vector2(1920, 1080)
 
 [node name="Static" type="Node2D" parent="."]
 
-[node name="Background" type="Sprite2D" parent="Static"]
-texture = ExtResource("1_fjs85")
+[node name="Neuron" type="Sprite2D" parent="Static"]
+position = Vector2(259, 180)
+texture = ExtResource("1_8m63f")
+centered = false
+region_rect = Rect2(373.28, 0, 1208.68, 1080)
+script = ExtResource("2_27spc")
+max_rotation = 1.0
+
+[node name="Walls" type="Sprite2D" parent="Static"]
+texture = ExtResource("2_rqgbh")
 centered = false
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Static"]
+[node name="Window" type="Sprite2D" parent="Static"]
+position = Vector2(803, 294)
+texture = ExtResource("3_xgyko")
+centered = false
+region_rect = Rect2(373.28, 0, 1208.68, 1080)
+
+[node name="Window2" type="Sprite2D" parent="Static"]
+position = Vector2(381, 284)
+texture = ExtResource("3_xgyko")
+centered = false
+region_rect = Rect2(373.28, 0, 1208.68, 1080)
+
+[node name="Window3" type="Sprite2D" parent="Static"]
+position = Vector2(1199, 294)
+texture = ExtResource("3_xgyko")
+centered = false
+region_rect = Rect2(373.28, 0, 1208.68, 1080)
+
+[node name="Collision" type="Node2D" parent="Static"]
+visible = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Static/Collision"]
 position = Vector2(967, 615)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="Static"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Static/Collision"]
 position = Vector2(965, 1096)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D4"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="Static"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Static/Collision"]
 position = Vector2(104, 818)
 rotation = -0.652446
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="Static"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Static/Collision"]
 position = Vector2(1535, 619)
 rotation = 0.627044
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D3"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="Static"]
+[node name="StaticBody2D5" type="StaticBody2D" parent="Static/Collision"]
 position = Vector2(-11, 710)
 rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D5"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="Static"]
+[node name="StaticBody2D6" type="StaticBody2D" parent="Static/Collision"]
 position = Vector2(1934, 744)
 rotation = 1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/StaticBody2D6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D6"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
@@ -100,6 +132,7 @@ offset_bottom = -296.0
 initial_node_to_watch = NodePath("../../YSort/Nerd/StateChart")
 
 [node name="YSort" type="Node2D" parent="."]
+visible = false
 y_sort_enabled = true
 
 [node name="Player" parent="YSort" instance=ExtResource("1_bl8ku")]
@@ -122,6 +155,7 @@ draw_limits = true
 limit_target = NodePath("../CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager"]
+visible = false
 position = Vector2(960.5, 541)
 shape = SubResource("RectangleShape2D_1dpwj")
 
