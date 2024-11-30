@@ -9,6 +9,12 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_fndfv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_7ncjy"]
 
+[sub_resource type="Resource" id="Resource_aay1r"]
+script = ExtResource("8_7ncjy")
+duration = 1.0
+transition = 4
+ease = 2
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cb5x3"]
 animations = [{
 "frames": [{
@@ -45,23 +51,23 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
-radius = 64.0
-height = 128.0
-
-[sub_resource type="Resource" id="Resource_aay1r"]
-script = ExtResource("8_7ncjy")
-duration = 1.0
-transition = 0
-ease = 2
+radius = 57.0
+height = 422.0
 
 [node name="Player" type="CharacterBody2D"]
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+script = ExtResource("7_fndfv")
+follow_mode = 2
+follow_target = NodePath("..")
+tween_resource = SubResource("Resource_aay1r")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.647, 0.647)
 sprite_frames = SubResource("SpriteFrames_cb5x3")
-animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 8)
 shape = SubResource("CapsuleShape2D_cocjj")
 
 [node name="PlayerInput" type="Node" parent="."]
@@ -73,15 +79,13 @@ input = NodePath("../PlayerInput")
 body = NodePath("..")
 move_speed = 200.0
 
-[node name="PlayerAttack" type="Node" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
+[node name="PlayerAttack" type="Node2D" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
 script = ExtResource("4_ji0j6")
 input = NodePath("../PlayerInput")
-animated_sprite = NodePath("../Sprite2D")
+animated_sprite = NodePath("../Animation")
 
-[node name="Animation" type="Node" parent="." node_paths=PackedStringArray("animated_sprite")]
+[node name="Animation" type="Node" parent="." node_paths=PackedStringArray("animated_sprite", "body", "flip_node")]
 script = ExtResource("6_mas5q")
 animated_sprite = NodePath("../Sprite2D")
-
-[node name="PhantomCamera2D" type="Node2D" parent="."]
-script = ExtResource("7_fndfv")
-tween_resource = SubResource("Resource_aay1r")
+body = NodePath("..")
+flip_node = NodePath("../PlayerAttack")

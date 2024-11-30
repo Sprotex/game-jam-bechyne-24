@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dnxwnp314802g" path="res://scenes/character/nerd/nerd.png" id="1_rnhlp"]
 [ext_resource type="Texture2D" uid="uid://jcnrv3mgixjc" path="res://scenes/character/nerd/nerd_side.png" id="2_xgn2y"]
-[ext_resource type="Script" path="res://scenes/character/player/player_input.gd" id="3_ydugn"]
+[ext_resource type="Script" path="res://scenes/character/nerd/ai_input.gd" id="3_w0yip"]
 [ext_resource type="Script" path="res://scenes/character/movement.gd" id="4_56cqt"]
 [ext_resource type="Script" path="res://scenes/character/player/player_attack.gd" id="5_umptg"]
 
@@ -54,16 +54,16 @@ sprite_frames = SubResource("SpriteFrames_hbgck")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_cocjj")
 
-[node name="PlayerInput" type="Node" parent="."]
-script = ExtResource("3_ydugn")
+[node name="AIInput" type="Node" parent="."]
+script = ExtResource("3_w0yip")
 
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("input", "body")]
 script = ExtResource("4_56cqt")
-input = NodePath("../PlayerInput")
+input = NodePath("../AIInput")
 body = NodePath("..")
 move_speed = 0.0
 
-[node name="PlayerAttack" type="Node" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
+[node name="Attack" type="Node" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
 script = ExtResource("5_umptg")
-input = NodePath("../PlayerInput")
+input = NodePath("../AIInput")
 animated_sprite = NodePath("../Sprite2D")

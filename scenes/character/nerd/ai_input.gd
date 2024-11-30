@@ -1,0 +1,2 @@
+extends CharacterInput
+class_name AIInput

@@ -15,6 +15,7 @@ centered = false
 position = Vector2(560, 608)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(313.059, 339.893)
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 process_priority = 300

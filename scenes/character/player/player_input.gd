@@ -1,10 +1,5 @@
-extends Node
+extends CharacterInput
 class_name PlayerInput
-
-var input_movement: Vector2
-
-signal on_light_attack_input
-signal on_heavy_attack_input
 
 
 func _handle_movement_input(_event: InputEvent) -> void:
