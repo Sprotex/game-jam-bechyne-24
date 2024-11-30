@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btjnrhj2u2e37"
-path="res://.godot/imported/pozadi_trida_1.png-e139c3cebde47def907c9af469249675.ctex"
+uid="uid://c8d5aernwf33a"
+path="res://.godot/imported/skřín.png-dfc71da5e7dffa33376a91c1c04debf6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/assets/pozadi_trida_1.png"
-dest_files=["res://.godot/imported/pozadi_trida_1.png-e139c3cebde47def907c9af469249675.ctex"]
+source_file="res://assets/skřín.png"
+dest_files=["res://.godot/imported/skřín.png-dfc71da5e7dffa33376a91c1c04debf6.ctex"]
 
 [params]
 
