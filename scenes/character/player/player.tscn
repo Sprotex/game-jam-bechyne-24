@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dm0bjrfqf5qxl"]
+[gd_scene load_steps=13 format=3 uid="uid://dm0bjrfqf5qxl"]
 
 [ext_resource type="Texture2D" uid="uid://0ng6s53stafv" path="res://scenes/character/jock.png" id="1_n30go"]
 [ext_resource type="Texture2D" uid="uid://hg8875vxr4up" path="res://scenes/character/jock_side.png" id="2_75p2a"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/character/player/animation_priority_player.gd" id="6_mas5q"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="7_fndfv"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="8_7ncjy"]
+[ext_resource type="Script" path="res://scenes/character/player/globals_registration.gd" id="9_r48ff"]
 
 [sub_resource type="Resource" id="Resource_aay1r"]
 script = ExtResource("8_7ncjy")
@@ -89,3 +90,7 @@ script = ExtResource("6_mas5q")
 animated_sprite = NodePath("../Sprite2D")
 body = NodePath("..")
 flip_node = NodePath("../PlayerAttack")
+
+[node name="GlobalsRegistration" type="Node" parent="." node_paths=PackedStringArray("body")]
+script = ExtResource("9_r48ff")
+body = NodePath("..")
