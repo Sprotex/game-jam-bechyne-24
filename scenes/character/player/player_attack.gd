@@ -5,7 +5,7 @@ class_name CharacterAttack
 @export var animated_sprite: AnimationPrioritiesPlayer
 @export var damage_mean := 20.0
 @export var damage_variation := 10.0
-@export var box: Area2D
+@export var collision: CollisionShape2D
 
 func _ready() -> void:
 	input.on_light_attack_input.connect(_handle_light_attack)
@@ -20,9 +20,14 @@ func _handle_heavy_attack() -> void:
 	animated_sprite.play(AnimationConstants.ANIMATION_HEAVY_ATTACK, AnimationConstants.PRIORITY_ATTACK)
 
 
+func _set_enabled_collision(value = true) -> void:
+	collision.disabled = not value
+
+
 func create_box(time: float) -> void:
-	if box.monitorable:
+	if not collision.disabled:
 		return
-	box.monitorable = true
+	_set_enabled_collision(true)
 	await get_tree().create_timer(time).timeout
-	box.monitorable = false
+	_set_enabled_collision(false)
+	
