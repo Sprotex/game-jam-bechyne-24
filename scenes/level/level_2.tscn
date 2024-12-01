@@ -1,17 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://4kjdft7jhqp"]
+[gd_scene load_steps=15 format=3 uid="uid://4kjdft7jhqp"]
 
 [ext_resource type="Texture2D" uid="uid://cxcdud2vqolby" path="res://assets/wave1/neurony.png" id="1_ulnjm"]
 [ext_resource type="Script" path="res://non_scene_scripts/shake.gd" id="2_dlqqy"]
-[ext_resource type="Texture2D" uid="uid://bxjdrnftr8gfd" path="res://assets/wave1/pozadi_třída.png" id="3_a6668"]
-[ext_resource type="Texture2D" uid="uid://0shac1m7510c" path="res://assets/wave1/okno.png" id="4_eqsgq"]
-[ext_resource type="PackedScene" uid="uid://dkr4ip5c3og88" path="res://scenes/obstacle/dynamic/table.tscn" id="5_kqe4k"]
-[ext_resource type="PackedScene" uid="uid://btktuirr0s857" path="res://scenes/obstacle/dynamic/table_alternative.tscn" id="6_jq2e7"]
+[ext_resource type="Texture2D" uid="uid://bs77ce5ql0dfp" path="res://assets/gym/pozadi_telocvična.png" id="3_nyh48"]
+[ext_resource type="Texture2D" uid="uid://bpi4xiyts014k" path="res://assets/gym/okna.png" id="4_u6is3"]
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="7_1c5vh"]
-[ext_resource type="PackedScene" uid="uid://dndit0ynl313x" path="res://scenes/character/nerd/nerd.tscn" id="8_nnn0f"]
-[ext_resource type="PackedScene" uid="uid://dr6ykp3s1opsf" path="res://scenes/obstacle/desk.tscn" id="9_g43l7"]
-[ext_resource type="PackedScene" uid="uid://dwb268siqlyj8" path="res://scenes/obstacle/wardrobe.tscn" id="10_oh14p"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_n8rf6"]
-[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="12_pyy6r"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_l1162"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_p8o8e"]
 [ext_resource type="Script" path="res://non_scene_scripts/next_scene_transition.gd" id="15_lptbr"]
@@ -27,10 +21,10 @@ transition = 0
 ease = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1dpwj"]
-size = Vector2(1920, 1080)
+size = Vector2(5758.5, 3238)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnyh1"]
-size = Vector2(154, 408)
+size = Vector2(154, 853)
 
 [node name="Level2" type="Node2D"]
 
@@ -39,7 +33,8 @@ y_sort_enabled = true
 
 [node name="Neuron" type="Sprite2D" parent="Static"]
 z_index = -100
-position = Vector2(259, 180)
+position = Vector2(-357, 20)
+scale = Vector2(4.70717, 4.70717)
 texture = ExtResource("1_ulnjm")
 centered = false
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
@@ -47,33 +42,47 @@ script = ExtResource("2_dlqqy")
 max_rotation = 1.0
 
 [node name="Walls" type="Sprite2D" parent="Static"]
-texture = ExtResource("3_a6668")
+scale = Vector2(3, 3)
+texture = ExtResource("3_nyh48")
 centered = false
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
 [node name="Window" type="Sprite2D" parent="Static"]
-position = Vector2(803, 294)
-texture = ExtResource("4_eqsgq")
+position = Vector2(91, 697)
+scale = Vector2(3, 3)
+texture = ExtResource("4_u6is3")
 centered = false
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
+[node name="Window4" type="Sprite2D" parent="Static"]
+position = Vector2(4971, 830)
+scale = Vector2(2.05546, 2.28571)
+texture = ExtResource("4_u6is3")
+centered = false
+flip_h = true
+region_rect = Rect2(373.28, 0, 1208.68, 1080)
+
 [node name="Window2" type="Sprite2D" parent="Static"]
-position = Vector2(381, 284)
-texture = ExtResource("4_eqsgq")
+position = Vector2(535, 824)
+scale = Vector2(2.00833, 2.35238)
+texture = ExtResource("4_u6is3")
 centered = false
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
 [node name="Window3" type="Sprite2D" parent="Static"]
-position = Vector2(1199, 294)
-texture = ExtResource("4_eqsgq")
+position = Vector2(5337, 689)
+scale = Vector2(2.61959, 3.05373)
+texture = ExtResource("4_u6is3")
 centered = false
+flip_h = true
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
 [node name="Collision" type="Node2D" parent="Static"]
 visible = false
+scale = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Static/Collision"]
-position = Vector2(967, 645)
+position = Vector2(967, 658)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D"]
 position = Vector2(0, -34.5)
@@ -88,16 +97,16 @@ shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Static/Collision"]
-position = Vector2(104, 818)
-rotation = -0.652446
+position = Vector2(111, 730)
+rotation = -0.490682
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D2"]
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Static/Collision"]
-position = Vector2(1535, 619)
-rotation = 0.627044
+position = Vector2(1684, 664)
+rotation = 0.493306
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Static/Collision/StaticBody2D3"]
 shape = SubResource("RectangleShape2D_ruprp")
@@ -119,37 +128,16 @@ rotation = 1.57079
 shape = SubResource("RectangleShape2D_ruprp")
 debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
-[node name="Table" parent="Static" instance=ExtResource("5_kqe4k")]
-position = Vector2(750, 750)
-
-[node name="Table2" parent="Static" instance=ExtResource("5_kqe4k")]
-position = Vector2(973, 748)
-
-[node name="Table3" parent="Static" instance=ExtResource("5_kqe4k")]
-position = Vector2(1214, 748)
-
-[node name="TableAlternative" parent="Static" instance=ExtResource("6_jq2e7")]
-position = Vector2(519, 745)
-
 [node name="Player" parent="Static" instance=ExtResource("7_1c5vh")]
-position = Vector2(429, 936)
-
-[node name="Nerd" parent="Static" instance=ExtResource("8_nnn0f")]
-position = Vector2(1550, 888)
-
-[node name="Desk" parent="Static" instance=ExtResource("9_g43l7")]
-position = Vector2(1485, 690)
-
-[node name="Wardrobe" parent="Static" instance=ExtResource("10_oh14p")]
-position = Vector2(325, 698)
+position = Vector2(138, 2673)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(641, 721)
+position = Vector2(641, 2473)
 limit_left = 1
 limit_top = 1
-limit_right = 1921
-limit_bottom = 1081
+limit_right = 5759
+limit_bottom = 3239
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -157,20 +145,10 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("11_n8rf6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="StateChartDebugger" parent="CanvasLayer" instance=ExtResource("12_pyy6r")]
-offset_left = -4.0
-offset_top = 2.0
-offset_right = -513.0
-offset_bottom = -296.0
-initial_node_to_watch = NodePath("../../Static/Nerd/StateChart")
-
 [node name="CameraManager" type="Node2D" parent="."]
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager" node_paths=PackedStringArray("follow_target")]
-position = Vector2(641, 721)
+position = Vector2(641, 2473)
 script = ExtResource("13_l1162")
 follow_mode = 2
 follow_target = NodePath("../../Static/Player")
@@ -182,10 +160,11 @@ limit_target = NodePath("../CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CameraManager"]
 visible = false
-position = Vector2(960.5, 541)
+position = Vector2(2879.75, 1620)
 shape = SubResource("RectangleShape2D_1dpwj")
 
 [node name="NextSceneTransition" type="Node2D" parent="."]
+position = Vector2(3827, 2167)
 script = ExtResource("15_lptbr")
 next_scene = ExtResource("16_0r7vp")
 
@@ -194,13 +173,7 @@ position = Vector2(897, 865)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextSceneTransition/Area2D"]
-position = Vector2(940, 0)
+position = Vector2(955, -202)
 shape = SubResource("RectangleShape2D_bnyh1")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
 [connection signal="body_entered" from="NextSceneTransition/Area2D" to="NextSceneTransition" method="_on_area_2d_body_entered"]
-
-[editable path="Static/Nerd"]
