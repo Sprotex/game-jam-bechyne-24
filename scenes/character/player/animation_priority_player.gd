@@ -37,11 +37,11 @@ func _handle_walk_transition() -> void:
 	if animated_sprite.animation != AnimationConstants.ANIMATION_IDLE:
 		return
 	play(AnimationConstants.ANIMATION_WALK, AnimationConstants.PRIORITY_WALK)
-	_handle_flip()
 
 
 
 func _process(delta: float) -> void:
+	_handle_flip()
 	_handle_walk_transition()
 	_handle_idle_transition()
 
