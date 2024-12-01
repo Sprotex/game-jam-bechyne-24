@@ -80,7 +80,6 @@ flip_h = true
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
 [node name="Collision" type="Node2D" parent="Static"]
-visible = false
 scale = Vector2(3, 3)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Static/Collision"]
@@ -138,7 +137,7 @@ position = Vector2(4028, 2010)
 scale = Vector2(1.90466, 2.35481)
 
 [node name="Ladder4" parent="Static" instance=ExtResource("6_652y5")]
-position = Vector2(4484, 2014)
+position = Vector2(4619, 2025)
 scale = Vector2(1.90466, 2.35481)
 
 [node name="Ladder3" parent="Static" instance=ExtResource("6_652y5")]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://dm0bjrfqf5qxl"]
+[gd_scene load_steps=9 format=3 uid="uid://dm0bjrfqf5qxl"]
 
 [ext_resource type="SpriteFrames" uid="uid://cy621uubactyb" path="res://assets/animation/player_sprite_frames.tres" id="1_tti7j"]
 [ext_resource type="Script" path="res://scenes/character/player/player_input.gd" id="2_kvt24"]
 [ext_resource type="Script" path="res://scenes/character/movement.gd" id="3_nxq0g"]
 [ext_resource type="Script" path="res://scenes/character/player/player_attack.gd" id="4_ji0j6"]
 [ext_resource type="Script" path="res://scenes/character/player/animation_priority_player.gd" id="6_mas5q"]
+[ext_resource type="PackedScene" uid="uid://caw6c6jslina6" path="res://scenes/character/health_component.tscn" id="7_n6nnf"]
 [ext_resource type="Script" path="res://scenes/character/player/globals_registration.gd" id="9_r48ff"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
@@ -49,3 +50,10 @@ flip_node = NodePath("../PlayerAttack")
 [node name="GlobalsRegistration" type="Node" parent="." node_paths=PackedStringArray("body")]
 script = ExtResource("9_r48ff")
 body = NodePath("..")
+
+[node name="HealthArea2D" parent="." instance=ExtResource("7_n6nnf")]
+
+[node name="Health" parent="HealthArea2D" index="1" node_paths=PackedStringArray("node_to_free")]
+node_to_free = NodePath("../..")
+
+[editable path="HealthArea2D"]
