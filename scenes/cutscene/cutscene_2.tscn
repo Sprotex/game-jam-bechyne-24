@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/cutscene/cutscene.gd" id="1_ja23t"]
 [ext_resource type="PackedScene" uid="uid://dbcjj0l7qwi47" path="res://scenes/level/level_3.tscn" id="2_xxooy"]
-[ext_resource type="VideoStream" path="res://1.ogv" id="3_6khxp"]
+[ext_resource type="VideoStream" path="res://assets/cs_2.ogv" id="3_wh4mc"]
 
 [node name="Cutscene" type="Control" node_paths=PackedStringArray("video_player")]
 layout_mode = 3
@@ -35,5 +35,5 @@ ratio = 1.7778
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
 layout_mode = 2
-stream = ExtResource("3_6khxp")
+stream = ExtResource("3_wh4mc")
 autoplay = true

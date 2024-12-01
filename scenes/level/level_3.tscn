@@ -104,6 +104,18 @@ position = Vector2(429, 936)
 [node name="Nerd" parent="Static" instance=ExtResource("8_470fh")]
 position = Vector2(1624, 862)
 
+[node name="Bin" parent="Static" instance=ExtResource("12_cei2v")]
+position = Vector2(1080, 835)
+
+[node name="Dumbbell" parent="Static" instance=ExtResource("13_uhq5b")]
+position = Vector2(757, 872)
+
+[node name="Dumbbell2" parent="Static" instance=ExtResource("13_uhq5b")]
+position = Vector2(818, 801)
+
+[node name="Bed" parent="Static" instance=ExtResource("11_v37we")]
+position = Vector2(1573, 799)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(641, 721)
@@ -146,18 +158,6 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextSceneTransition/Area2D"]
 shape = SubResource("RectangleShape2D_bnyh1")
-
-[node name="Bed" parent="." instance=ExtResource("11_v37we")]
-position = Vector2(1573, 799)
-
-[node name="Bin" parent="." instance=ExtResource("12_cei2v")]
-position = Vector2(1080, 835)
-
-[node name="Dumbbell" parent="." instance=ExtResource("13_uhq5b")]
-position = Vector2(757, 872)
-
-[node name="Dumbbell2" parent="." instance=ExtResource("13_uhq5b")]
-position = Vector2(818, 801)
 
 [connection signal="body_entered" from="NextSceneTransition/Area2D" to="NextSceneTransition" method="_on_area_2d_body_entered"]
 

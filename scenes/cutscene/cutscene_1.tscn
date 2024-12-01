@@ -38,7 +38,5 @@ ratio = 1.7647
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 stream = ExtResource("3_2pwan")
 autoplay = true

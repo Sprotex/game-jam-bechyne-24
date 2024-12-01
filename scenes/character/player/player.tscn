@@ -24,8 +24,7 @@ position = Vector2(236, 41.9985)
 rotation = 1.57079
 scale = Vector2(0.647, 0.647)
 sprite_frames = ExtResource("1_tti7j")
-animation = &"light_attack"
-frame_progress = 0.29457
+animation = &"walk"
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("2_kvt24")
