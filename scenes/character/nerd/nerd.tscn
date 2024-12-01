@@ -38,6 +38,7 @@ rotation = 1.57079
 scale = Vector2(-0.8, 0.8)
 sprite_frames = ExtResource("1_u2x8v")
 autoplay = "default"
+flip_h = true
 
 [node name="AIInput" type="Node" parent="."]
 script = ExtResource("3_w0yip")
@@ -66,8 +67,7 @@ script = ExtResource("9_hnlja")
 [node name="ToFollowPlayer" type="Node" parent="StateChart/MovementLogic/WaitingForPlayerDistance"]
 script = ExtResource("10_18ok4")
 to = NodePath("../../FollowPlayer")
-event = &"transition_to_follow_player"
-delay_in_seconds = "0.0"
+delay_in_seconds = "0.5"
 
 [node name="FollowPlayer" type="Node" parent="StateChart/MovementLogic"]
 script = ExtResource("9_hnlja")
