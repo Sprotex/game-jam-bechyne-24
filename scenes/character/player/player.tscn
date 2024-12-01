@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dm0bjrfqf5qxl"]
+[gd_scene load_steps=8 format=3 uid="uid://dm0bjrfqf5qxl"]
 
-[ext_resource type="Texture2D" uid="uid://0ng6s53stafv" path="res://scenes/character/jock.png" id="1_n30go"]
-[ext_resource type="Texture2D" uid="uid://hg8875vxr4up" path="res://scenes/character/jock_side.png" id="2_75p2a"]
+[ext_resource type="SpriteFrames" uid="uid://cy621uubactyb" path="res://assets/animation/player_sprite_frames.tres" id="1_tti7j"]
 [ext_resource type="Script" path="res://scenes/character/player/player_input.gd" id="2_kvt24"]
 [ext_resource type="Script" path="res://scenes/character/movement.gd" id="3_nxq0g"]
 [ext_resource type="Script" path="res://scenes/character/player/player_attack.gd" id="4_ji0j6"]
@@ -11,41 +10,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
 radius = 35.0
 height = 158.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_cb5x3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_n30go")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"heavy_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"light_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_75p2a")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -59,7 +23,8 @@ shape = SubResource("CapsuleShape2D_cocjj")
 position = Vector2(202, 0)
 rotation = 1.57079
 scale = Vector2(0.647, 0.647)
-sprite_frames = SubResource("SpriteFrames_cb5x3")
+sprite_frames = ExtResource("1_tti7j")
+animation = &"heavy_attack"
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("2_kvt24")

@@ -1,0 +1,104 @@
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://cy621uubactyb"]
+
+[ext_resource type="Texture2D" uid="uid://0ng6s53stafv" path="res://scenes/character/jock.png" id="1_kr7l8"]
+[ext_resource type="Texture2D" uid="uid://hg8875vxr4up" path="res://scenes/character/jock_side.png" id="2_gif17"]
+[ext_resource type="Texture2D" uid="uid://d3f5b1s831mxp" path="res://assets/animation/kick/kick_1.png" id="2_rg8pj"]
+[ext_resource type="Texture2D" uid="uid://df4w2g1ldrt2u" path="res://assets/animation/kick/kick_2.png" id="3_ilqjb"]
+[ext_resource type="Texture2D" uid="uid://bgxk8kmapd6bo" path="res://assets/animation/kick/kick_3.png" id="4_iodxy"]
+[ext_resource type="Texture2D" uid="uid://q57j4dnq6vt2" path="res://assets/animation/kick/kick_4.png" id="5_ee35f"]
+[ext_resource type="Texture2D" uid="uid://3t5yxwygcprw" path="res://assets/animation/kick/kick_5.png" id="6_4llof"]
+[ext_resource type="Texture2D" uid="uid://dg1x3ehl601w0" path="res://assets/animation/kick/kick_6.png" id="7_aomih"]
+[ext_resource type="Texture2D" uid="uid://dxssldu3gvwii" path="res://assets/animation/kick/kick_7.png" id="8_nl2lp"]
+[ext_resource type="Texture2D" uid="uid://dakmgsl102fv4" path="res://assets/animation/kick/kick_8.png" id="9_y0xoh"]
+[ext_resource type="Texture2D" uid="uid://yp3m64c1fyn4" path="res://assets/animation/kick/kick_9.png" id="10_2xpmp"]
+[ext_resource type="Texture2D" uid="uid://r7b3cfl1hugb" path="res://assets/animation/kick/kick_10.png" id="11_5unqb"]
+[ext_resource type="Texture2D" uid="uid://da2rrb8101qx2" path="res://assets/animation/kick/kick_11.png" id="12_1xyp7"]
+[ext_resource type="Texture2D" uid="uid://cg7raae105q4m" path="res://assets/animation/kick/kick_12.png" id="13_d44rd"]
+[ext_resource type="Texture2D" uid="uid://w1wpa1h6pd4s" path="res://assets/animation/kick/kick_13.png" id="14_kh84p"]
+[ext_resource type="Texture2D" uid="uid://boi6j0lq1g3q5" path="res://assets/animation/kick/kick_14.png" id="15_gv6po"]
+[ext_resource type="Texture2D" uid="uid://c2wjxascka1bv" path="res://assets/animation/kick/kick_15.png" id="16_4t8jv"]
+[ext_resource type="Texture2D" uid="uid://cy20rhn88584p" path="res://assets/animation/kick/kick_16.png" id="17_755ur"]
+[ext_resource type="Texture2D" uid="uid://ciwf3ucd34pxp" path="res://assets/animation/kick/kick_17.png" id="18_8goa4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kr7l8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rg8pj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ilqjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iodxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ee35f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4llof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_aomih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nl2lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y0xoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2xpmp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5unqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1xyp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_d44rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_kh84p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gv6po")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4t8jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_755ur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8goa4")
+}],
+"loop": false,
+"name": &"heavy_attack",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"light_attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gif17")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]

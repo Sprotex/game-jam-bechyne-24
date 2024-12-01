@@ -38,8 +38,8 @@ func _handle_animation_finished() -> void:
 func _handle_flip() -> void:
 	var return_conditions = [
 		animated_sprite.animation != AnimationConstants.ANIMATION_WALK,
-		body.velocity.x > -0.01 and animated_sprite.flip_h,
-		body.velocity.x <  0.01 and not animated_sprite.flip_h
+		body.velocity.x > -0.01 and not animated_sprite.flip_h,
+		body.velocity.x <  0.01 and animated_sprite.flip_h
 	]
 	if return_conditions.any(Helpers.test):
 		return
