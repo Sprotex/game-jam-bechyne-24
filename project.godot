@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GameJamBechyne"
-run/main_scene="res://main.tscn"
+run/main_scene="res://scenes/level_1.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,10 +19,16 @@ config/icon="res://icon.svg"
 
 Globals="*res://autoload/globals/globals.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+SceneManager="*res://addons/scene_manager/SceneManager.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/plugin_refresher/plugin.cfg", "res://addons/scene_manager/plugin.cfg")
 
 [input]
 

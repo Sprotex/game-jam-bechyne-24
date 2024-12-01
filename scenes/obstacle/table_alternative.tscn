@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://btktuirr0s857"]
-
-[ext_resource type="PackedScene" uid="uid://c7nu4i7afoisa" path="res://scenes/obstacle/obstacle.tscn" id="1_d4wct"]
-[ext_resource type="Texture2D" uid="uid://d065ujybr7tuy" path="res://assets/židle_2.png" id="2_17vgc"]
-
-[node name="TableAlternative" instance=ExtResource("1_d4wct")]
-
-[node name="Sprite2D" parent="." index="1"]
-texture = ExtResource("2_17vgc")

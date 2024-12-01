@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://btktuirr0s857"]
+
+[ext_resource type="PackedScene" uid="uid://c7nu4i7afoisa" path="res://scenes/obstacle/dynamic/obstacle.tscn" id="1_d4wct"]
+
+[node name="TableAlternative" instance=ExtResource("1_d4wct")]

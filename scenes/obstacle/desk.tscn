@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr6ykp3s1opsf"]
+
+[ext_resource type="PackedScene" uid="uid://d2pdhtsiulk02" path="res://scenes/obstacle/static_obstacle.tscn" id="1_gjq74"]
+[ext_resource type="Texture2D" uid="uid://cce4ye5ap2cf8" path="res://assets/wave1/stolek.png" id="2_yqlom"]
+
+[node name="Desk" instance=ExtResource("1_gjq74")]
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+texture = ExtResource("2_yqlom")
