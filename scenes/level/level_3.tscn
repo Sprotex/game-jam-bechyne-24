@@ -104,6 +104,12 @@ position = Vector2(429, 936)
 [node name="Nerd" parent="Static" instance=ExtResource("8_470fh")]
 position = Vector2(1624, 862)
 
+[node name="Nerd2" parent="Static" instance=ExtResource("8_470fh")]
+position = Vector2(1354, 1042)
+
+[node name="Nerd3" parent="Static" instance=ExtResource("8_470fh")]
+position = Vector2(1084, 870)
+
 [node name="Bin" parent="Static" instance=ExtResource("12_cei2v")]
 position = Vector2(1080, 835)
 
@@ -163,3 +169,7 @@ shape = SubResource("RectangleShape2D_bnyh1")
 
 [editable path="Static/Nerd"]
 [editable path="Static/Nerd/HealthArea2D"]
+[editable path="Static/Nerd2"]
+[editable path="Static/Nerd2/HealthArea2D"]
+[editable path="Static/Nerd3"]
+[editable path="Static/Nerd3/HealthArea2D"]

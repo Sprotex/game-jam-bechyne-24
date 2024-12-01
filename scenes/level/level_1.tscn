@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d7rvxfjaj7en"]
+[gd_scene load_steps=21 format=3 uid="uid://d7rvxfjaj7en"]
 
 [ext_resource type="Texture2D" uid="uid://cxcdud2vqolby" path="res://assets/wave1/neurony.png" id="1_8m63f"]
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="1_bl8ku"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_khi5o"]
 [ext_resource type="PackedScene" uid="uid://dr6ykp3s1opsf" path="res://scenes/obstacle/desk.tscn" id="9_sghga"]
 [ext_resource type="PackedScene" uid="uid://dwb268siqlyj8" path="res://scenes/obstacle/wardrobe.tscn" id="10_23hro"]
-[ext_resource type="Script" path="res://spawner.gd" id="10_dohiw"]
 [ext_resource type="Script" path="res://non_scene_scripts/next_scene_transition.gd" id="15_qivpv"]
 [ext_resource type="PackedScene" uid="uid://4kjdft7jhqp" path="res://scenes/level/level_2.tscn" id="16_qa7pk"]
 
@@ -37,14 +36,6 @@ size = Vector2(90, 408)
 
 [node name="Static" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="Spawner" type="Node2D" parent="Static"]
-position = Vector2(822, 473)
-script = ExtResource("10_dohiw")
-spawnee = ExtResource("3_kojxl")
-spawns_per_wave = Array[int]([1])
-
-[node name="Marker2D" type="Marker2D" parent="Static/Spawner"]
 
 [node name="Neuron" type="Sprite2D" parent="Static"]
 z_index = -100
@@ -201,4 +192,13 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextSceneTransition/Area2D"]
 shape = SubResource("RectangleShape2D_bnyh1")
 
+[node name="Nerd" parent="." instance=ExtResource("3_kojxl")]
+position = Vector2(1632, 867)
+
+[node name="Health" parent="Nerd/HealthArea2D" index="1"]
+max_health = 1
+
 [connection signal="body_entered" from="NextSceneTransition/Area2D" to="NextSceneTransition" method="_on_area_2d_body_entered"]
+
+[editable path="Nerd"]
+[editable path="Nerd/HealthArea2D"]

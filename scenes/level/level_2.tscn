@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://4kjdft7jhqp"]
+[gd_scene load_steps=18 format=3 uid="uid://4kjdft7jhqp"]
 
 [ext_resource type="Texture2D" uid="uid://cxcdud2vqolby" path="res://assets/wave1/neurony.png" id="1_ulnjm"]
 [ext_resource type="Script" path="res://non_scene_scripts/shake.gd" id="2_dlqqy"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dnbom1805uauf" path="res://scenes/cutscene/cutscene_2.tscn" id="10_xrqbb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_n8rf6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_l1162"]
+[ext_resource type="PackedScene" uid="uid://dndit0ynl313x" path="res://scenes/character/nerd/nerd.tscn" id="13_wffnw"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_p8o8e"]
 [ext_resource type="Script" path="res://non_scene_scripts/next_scene_transition.gd" id="15_lptbr"]
 
@@ -273,4 +274,21 @@ collision_mask = 2
 position = Vector2(829.5, -273.75)
 shape = SubResource("RectangleShape2D_bnyh1")
 
+[node name="Nerd" parent="." instance=ExtResource("13_wffnw")]
+position = Vector2(5053, 3001)
+
+[node name="Health" parent="Nerd/HealthArea2D" index="1"]
+max_health = 2
+
+[node name="Nerd2" parent="." instance=ExtResource("13_wffnw")]
+position = Vector2(4383, 2345)
+
+[node name="Health" parent="Nerd2/HealthArea2D" index="1"]
+max_health = 2
+
 [connection signal="body_entered" from="NextSceneTransition/Area2D" to="NextSceneTransition" method="_on_area_2d_body_entered"]
+
+[editable path="Nerd"]
+[editable path="Nerd/HealthArea2D"]
+[editable path="Nerd2"]
+[editable path="Nerd2/HealthArea2D"]
