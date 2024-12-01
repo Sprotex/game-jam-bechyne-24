@@ -24,5 +24,10 @@ offset_right = 343.0
 offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Thank you for playing!"
+text = "Pardon, mě to nenapadlo, že to sem někdo dohraje.
+
+Dík. 😺"
 label_settings = SubResource("LabelSettings_1olvp")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

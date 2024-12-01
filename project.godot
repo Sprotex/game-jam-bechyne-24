@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Globals="*res://autoload/globals/globals.tscn"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 SceneManager="*res://addons/scene_manager/SceneManager.tscn"
+Audio="*res://autoload/audio/audio.tscn"
 
 [display]
 
