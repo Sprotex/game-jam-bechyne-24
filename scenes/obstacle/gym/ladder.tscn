@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgl6uy3imlxyn"]
+
+[ext_resource type="PackedScene" uid="uid://d2pdhtsiulk02" path="res://scenes/obstacle/static_obstacle.tscn" id="1_ga74v"]
+[ext_resource type="Texture2D" uid="uid://bsk8lf5xmd8dy" path="res://assets/gym/žebřiny.png" id="2_t2vx6"]
+
+[node name="Ladder" instance=ExtResource("1_ga74v")]
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+position = Vector2(143, -0.999482)
+texture = ExtResource("2_t2vx6")

@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://4kjdft7jhqp"]
+[gd_scene load_steps=17 format=3 uid="uid://4kjdft7jhqp"]
 
 [ext_resource type="Texture2D" uid="uid://cxcdud2vqolby" path="res://assets/wave1/neurony.png" id="1_ulnjm"]
 [ext_resource type="Script" path="res://non_scene_scripts/shake.gd" id="2_dlqqy"]
 [ext_resource type="Texture2D" uid="uid://bs77ce5ql0dfp" path="res://assets/gym/pozadi_telocvična.png" id="3_nyh48"]
 [ext_resource type="Texture2D" uid="uid://bpi4xiyts014k" path="res://assets/gym/okna.png" id="4_u6is3"]
+[ext_resource type="PackedScene" uid="uid://cgl6uy3imlxyn" path="res://scenes/obstacle/gym/ladder.tscn" id="6_652y5"]
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="7_1c5vh"]
+[ext_resource type="PackedScene" uid="uid://bm3lbocgsgpdq" path="res://scenes/obstacle/gym/dumbbell.tscn" id="7_sim72"]
 [ext_resource type="PackedScene" uid="uid://dnbom1805uauf" path="res://scenes/cutscene/cutscene_2.tscn" id="10_xrqbb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_n8rf6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_l1162"]
@@ -130,6 +132,102 @@ debug_color = Color(0.97088, 0, 0.451747, 0.42)
 
 [node name="Player" parent="Static" instance=ExtResource("7_1c5vh")]
 position = Vector2(138, 2673)
+
+[node name="Ladder2" parent="Static" instance=ExtResource("6_652y5")]
+position = Vector2(4028, 2010)
+scale = Vector2(1.90466, 2.35481)
+
+[node name="Ladder4" parent="Static" instance=ExtResource("6_652y5")]
+position = Vector2(4484, 2014)
+scale = Vector2(1.90466, 2.35481)
+
+[node name="Ladder3" parent="Static" instance=ExtResource("6_652y5")]
+position = Vector2(3532, 2010)
+scale = Vector2(1.90466, 2.35481)
+
+[node name="Ladder5" parent="Static" instance=ExtResource("6_652y5")]
+position = Vector2(1712, 2010)
+scale = Vector2(1.90466, 2.35481)
+
+[node name="Ladder6" parent="Static" instance=ExtResource("6_652y5")]
+position = Vector2(2168, 2014)
+scale = Vector2(1.90466, 2.35481)
+
+[node name="Ladder7" parent="Static" instance=ExtResource("6_652y5")]
+position = Vector2(1216, 2010)
+scale = Vector2(1.90466, 2.35481)
+
+[node name="Dumbbell" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(942, 2465)
+rotation = 0.557657
+
+[node name="Dumbbell2" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(1344, 2367)
+rotation = -0.66228
+
+[node name="Dumbbell3" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(1606, 2514)
+rotation = 0.333347
+
+[node name="Dumbbell4" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(871, 2832)
+rotation = 2.30428
+
+[node name="Dumbbell5" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(1273, 2734)
+rotation = 1.08435
+
+[node name="Dumbbell6" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(1535, 2881)
+rotation = 2.07997
+
+[node name="Dumbbell13" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(3071, 2394)
+rotation = -1.00529
+
+[node name="Dumbbell14" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(3473, 2296)
+rotation = -2.22523
+
+[node name="Dumbbell15" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(3735, 2443)
+rotation = -1.2296
+
+[node name="Dumbbell16" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(3000, 2761)
+rotation = 0.741334
+
+[node name="Dumbbell17" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(3402, 2663)
+rotation = -0.478603
+
+[node name="Dumbbell18" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(3664, 2810)
+rotation = 0.517024
+
+[node name="Dumbbell7" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(1985, 2351)
+rotation = -0.73199
+
+[node name="Dumbbell8" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(2387, 2253)
+rotation = -1.95193
+
+[node name="Dumbbell9" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(2649, 2400)
+rotation = -0.956299
+
+[node name="Dumbbell10" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(1914, 2718)
+rotation = 1.01464
+
+[node name="Dumbbell11" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(2316, 2620)
+rotation = -0.2053
+
+[node name="Dumbbell12" parent="Static" instance=ExtResource("7_sim72")]
+position = Vector2(2578, 2767)
+rotation = 0.790327
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
