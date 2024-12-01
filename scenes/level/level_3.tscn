@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbcjj0l7qwi47"]
+[gd_scene load_steps=18 format=3 uid="uid://dbcjj0l7qwi47"]
 
 [ext_resource type="Texture2D" uid="uid://cxcdud2vqolby" path="res://assets/wave1/neurony.png" id="1_xasu4"]
 [ext_resource type="Script" path="res://non_scene_scripts/shake.gd" id="2_t7bpb"]
@@ -6,9 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="7_1528x"]
 [ext_resource type="PackedScene" uid="uid://dndit0ynl313x" path="res://scenes/character/nerd/nerd.tscn" id="8_470fh"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_tt3a3"]
+[ext_resource type="PackedScene" uid="uid://dfntglxdwqokd" path="res://scenes/obstacle/room/bed.tscn" id="11_v37we"]
 [ext_resource type="PackedScene" uid="uid://b6usbufo140m7" path="res://scenes/level/level_end.tscn" id="11_yqkqn"]
-[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="12_86ur0"]
+[ext_resource type="PackedScene" uid="uid://u2ni0hmea43q" path="res://scenes/obstacle/room/bin.tscn" id="12_cei2v"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_mgwfo"]
+[ext_resource type="PackedScene" uid="uid://bm3lbocgsgpdq" path="res://scenes/obstacle/gym/dumbbell.tscn" id="13_uhq5b"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_rhs0j"]
 [ext_resource type="Script" path="res://non_scene_scripts/next_scene_transition.gd" id="15_4qbu1"]
 
@@ -47,6 +49,7 @@ centered = false
 region_rect = Rect2(373.28, 0, 1208.68, 1080)
 
 [node name="Collision" type="Node2D" parent="Static"]
+visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Static/Collision"]
 position = Vector2(969, 715)
@@ -115,16 +118,6 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("11_tt3a3")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="StateChartDebugger" parent="CanvasLayer" instance=ExtResource("12_86ur0")]
-offset_left = -4.0
-offset_top = 2.0
-offset_right = -513.0
-offset_bottom = -296.0
-initial_node_to_watch = NodePath("../../Static/Nerd/StateChart")
-
 [node name="CameraManager" type="Node2D" parent="."]
 
 [node name="PhantomCamera2D" type="Node2D" parent="CameraManager" node_paths=PackedStringArray("follow_target")]
@@ -153,6 +146,18 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextSceneTransition/Area2D"]
 shape = SubResource("RectangleShape2D_bnyh1")
+
+[node name="Bed" parent="." instance=ExtResource("11_v37we")]
+position = Vector2(1573, 799)
+
+[node name="Bin" parent="." instance=ExtResource("12_cei2v")]
+position = Vector2(1080, 835)
+
+[node name="Dumbbell" parent="." instance=ExtResource("13_uhq5b")]
+position = Vector2(757, 872)
+
+[node name="Dumbbell2" parent="." instance=ExtResource("13_uhq5b")]
+position = Vector2(818, 801)
 
 [connection signal="body_entered" from="NextSceneTransition/Area2D" to="NextSceneTransition" method="_on_area_2d_body_entered"]
 
