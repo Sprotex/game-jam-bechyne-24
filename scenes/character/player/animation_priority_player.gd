@@ -23,6 +23,15 @@ func play(animation: String, priority: int) -> bool:
 	return true
 
 
+func _process(delta: float) -> void:
+	if body.velocity.length_squared() >= 0.01:
+		return
+	if animated_sprite.animation != AnimationConstants.ANIMATION_WALK:
+		return
+	play(AnimationConstants.ANIMATION_IDLE, AnimationConstants.PRIORITY_RESET)
+		
+
+
 func _play_reset_internal(animation: String) -> void:
 	animated_sprite.play(animation, AnimationConstants.PRIORITY_RESET)
 
