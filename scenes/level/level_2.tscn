@@ -5,11 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://bs77ce5ql0dfp" path="res://assets/gym/pozadi_telocvična.png" id="3_nyh48"]
 [ext_resource type="Texture2D" uid="uid://bpi4xiyts014k" path="res://assets/gym/okna.png" id="4_u6is3"]
 [ext_resource type="PackedScene" uid="uid://dm0bjrfqf5qxl" path="res://scenes/character/player/player.tscn" id="7_1c5vh"]
+[ext_resource type="PackedScene" uid="uid://dnbom1805uauf" path="res://scenes/cutscene/cutscene_2.tscn" id="10_xrqbb"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="11_n8rf6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_l1162"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_p8o8e"]
 [ext_resource type="Script" path="res://non_scene_scripts/next_scene_transition.gd" id="15_lptbr"]
-[ext_resource type="PackedScene" uid="uid://b6usbufo140m7" path="res://scenes/level/level_end.tscn" id="16_0r7vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ruprp"]
 size = Vector2(2522, 89)
@@ -166,7 +166,7 @@ shape = SubResource("RectangleShape2D_1dpwj")
 [node name="NextSceneTransition" type="Node2D" parent="."]
 position = Vector2(3827, 2167)
 script = ExtResource("15_lptbr")
-next_scene = ExtResource("16_0r7vp")
+next_scene = ExtResource("10_xrqbb")
 
 [node name="Area2D" type="Area2D" parent="NextSceneTransition"]
 position = Vector2(897, 865)
