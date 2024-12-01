@@ -1,7 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://dndit0ynl313x"]
+[gd_scene load_steps=14 format=3 uid="uid://dndit0ynl313x"]
 
-[ext_resource type="Texture2D" uid="uid://dnxwnp314802g" path="res://scenes/character/nerd/nerd.png" id="1_rnhlp"]
-[ext_resource type="Texture2D" uid="uid://jcnrv3mgixjc" path="res://scenes/character/nerd/nerd_side.png" id="2_xgn2y"]
+[ext_resource type="SpriteFrames" uid="uid://2i5yuhfffx2i" path="res://assets/animation/nerd.tres" id="1_u2x8v"]
 [ext_resource type="Script" path="res://scenes/character/nerd/ai_input.gd" id="3_w0yip"]
 [ext_resource type="Script" path="res://scenes/character/movement.gd" id="4_56cqt"]
 [ext_resource type="Script" path="res://scenes/character/player/player_attack.gd" id="5_umptg"]
@@ -13,50 +12,15 @@
 [ext_resource type="Script" path="res://scenes/character/nerd/follow_player_logic.gd" id="11_gyf2i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
-radius = 18.0
-height = 88.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hbgck"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_rnhlp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"heavy_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": null
-}],
-"loop": false,
-"name": &"light_attack",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_xgn2y")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
+radius = 19.0
+height = 144.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1pf33"]
 radius = 400.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wbgey"]
-radius = 22.0
-height = 102.0
+radius = 27.0
+height = 202.0
 
 [node name="Nerd" type="CharacterBody2D"]
 y_sort_enabled = true
@@ -68,9 +32,11 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_cocjj")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(214, 22.9987)
+position = Vector2(178, -1.00112)
 rotation = 1.57079
-sprite_frames = SubResource("SpriteFrames_hbgck")
+scale = Vector2(-0.8, 0.8)
+sprite_frames = ExtResource("1_u2x8v")
+autoplay = "default"
 
 [node name="AIInput" type="Node" parent="."]
 script = ExtResource("3_w0yip")

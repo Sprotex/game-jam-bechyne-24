@@ -135,7 +135,7 @@ position = Vector2(519, 745)
 position = Vector2(429, 936)
 
 [node name="Nerd" parent="Static" instance=ExtResource("8_nnn0f")]
-position = Vector2(1624, 862)
+position = Vector2(1550, 888)
 
 [node name="Desk" parent="Static" instance=ExtResource("9_g43l7")]
 position = Vector2(1485, 690)

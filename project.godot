@@ -13,6 +13,8 @@ config_version=5
 config/name="GameJamBechyne"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="res://assets/logo.png"
 config/icon="res://icon.svg"
 
 [autoload]
@@ -78,3 +80,4 @@ heavy_attack={
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)
