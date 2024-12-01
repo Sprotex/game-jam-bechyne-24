@@ -20,11 +20,10 @@ rotation = -1.57079
 shape = SubResource("CapsuleShape2D_cocjj")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
-position = Vector2(202, 0)
+position = Vector2(236, 41.9985)
 rotation = 1.57079
 scale = Vector2(0.647, 0.647)
 sprite_frames = ExtResource("1_tti7j")
-animation = &"heavy_attack"
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("2_kvt24")

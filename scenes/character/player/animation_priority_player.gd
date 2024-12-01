@@ -23,13 +23,27 @@ func play(animation: String, priority: int) -> bool:
 	return true
 
 
-func _process(delta: float) -> void:
+func _handle_idle_transition() -> void:
 	if body.velocity.length_squared() >= 0.01:
 		return
 	if animated_sprite.animation != AnimationConstants.ANIMATION_WALK:
 		return
 	play(AnimationConstants.ANIMATION_IDLE, AnimationConstants.PRIORITY_RESET)
-		
+
+
+func _handle_walk_transition() -> void:
+	if body.velocity.length_squared() < 0.01:
+		return
+	if animated_sprite.animation != AnimationConstants.ANIMATION_IDLE:
+		return
+	play(AnimationConstants.ANIMATION_WALK, AnimationConstants.PRIORITY_WALK)
+	_handle_flip()
+
+
+
+func _process(delta: float) -> void:
+	_handle_walk_transition()
+	_handle_idle_transition()
 
 
 func _play_reset_internal(animation: String) -> void:

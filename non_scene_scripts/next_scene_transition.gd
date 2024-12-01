@@ -9,4 +9,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body != Globals.player:
 		return
 	is_transitioning = true
-	SceneManager.change_scene(next_scene.resource_path)
+	SceneManager.change_scene(next_scene.resource_path, { "speed": 10 })
