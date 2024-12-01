@@ -24,6 +24,8 @@ position = Vector2(236, 41.9985)
 rotation = 1.57079
 scale = Vector2(0.647, 0.647)
 sprite_frames = ExtResource("1_tti7j")
+animation = &"light_attack"
+frame_progress = 0.29457
 
 [node name="PlayerInput" type="Node" parent="."]
 script = ExtResource("2_kvt24")
@@ -32,7 +34,7 @@ script = ExtResource("2_kvt24")
 script = ExtResource("3_nxq0g")
 input = NodePath("../PlayerInput")
 body = NodePath("..")
-move_speed = 200.0
+move_speed = 400.0
 
 [node name="PlayerAttack" type="Node2D" parent="." node_paths=PackedStringArray("input", "animated_sprite")]
 script = ExtResource("4_ji0j6")

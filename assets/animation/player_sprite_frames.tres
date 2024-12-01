@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=121 format=3 uid="uid://cy621uubactyb"]
+[gd_resource type="SpriteFrames" load_steps=119 format=3 uid="uid://cy621uubactyb"]
 
 [ext_resource type="Texture2D" uid="uid://baop2wjjo3qep" path="res://assets/animation/idle/idle_1.png" id="1_qxav6"]
 [ext_resource type="Texture2D" uid="uid://dupougydx4hdl" path="res://assets/animation/idle/idle_2.png" id="2_j36or"]
@@ -31,9 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://pycnuboamyul" path="res://assets/animation/idle/idle_15.png" id="15_yqk73"]
 [ext_resource type="Texture2D" uid="uid://c2wjxascka1bv" path="res://assets/animation/kick/kick_15.png" id="16_4t8jv"]
 [ext_resource type="Texture2D" uid="uid://cm4o2nqyyhmd1" path="res://assets/animation/idle/idle_16.png" id="16_sf2ov"]
-[ext_resource type="Texture2D" uid="uid://cy20rhn88584p" path="res://assets/animation/kick/kick_16.png" id="17_755ur"]
 [ext_resource type="Texture2D" uid="uid://cdc8a5lcanwbt" path="res://assets/animation/idle/idle_17.png" id="17_bsqfv"]
-[ext_resource type="Texture2D" uid="uid://ciwf3ucd34pxp" path="res://assets/animation/kick/kick_17.png" id="18_8goa4"]
 [ext_resource type="Texture2D" uid="uid://cew0jbccw5230" path="res://assets/animation/idle/idle_18.png" id="18_achjk"]
 [ext_resource type="Texture2D" uid="uid://dlpiqeyhktxrv" path="res://assets/animation/fist/fist_1.png" id="19_j1c36"]
 [ext_resource type="Texture2D" uid="uid://bdvsp5pv1pur2" path="res://assets/animation/idle/idle_19.png" id="19_yvtb3"]
@@ -302,16 +300,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("16_4t8jv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_755ur")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_8goa4")
 }],
-"loop": false,
+"loop": true,
 "name": &"heavy_attack",
-"speed": 24.0
+"speed": 50.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -371,9 +363,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("37_sehbu")
 }],
-"loop": false,
+"loop": true,
 "name": &"light_attack",
-"speed": 24.0
+"speed": 51.0
 }, {
 "frames": [{
 "duration": 1.0,
