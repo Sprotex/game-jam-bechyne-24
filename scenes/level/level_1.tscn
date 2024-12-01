@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://dwb268siqlyj8" path="res://scenes/obstacle/wardrobe.tscn" id="10_23hro"]
 [ext_resource type="Script" path="res://spawner.gd" id="10_dohiw"]
 [ext_resource type="Script" path="res://non_scene_scripts/next_scene_transition.gd" id="15_qivpv"]
-[ext_resource type="PackedScene" uid="uid://4kjdft7jhqp" path="res://scenes/level_2.tscn" id="16_qa7pk"]
+[ext_resource type="PackedScene" uid="uid://4kjdft7jhqp" path="res://scenes/level/level_2.tscn" id="16_qa7pk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ruprp"]
 size = Vector2(2522, 89)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dodalimb05dth"]
+
+[ext_resource type="Script" path="res://scenes/cutscene/cutscene.gd" id="1_dip3n"]
+[ext_resource type="PackedScene" uid="uid://d7rvxfjaj7en" path="res://scenes/level/level_1.tscn" id="2_lejhs"]
+[ext_resource type="VideoStream" path="res://1.ogv" id="3_2pwan"]
+
+[node name="Cutscene" type="Control" node_paths=PackedStringArray("video_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dip3n")
+next_level = ExtResource("2_lejhs")
+video_player = NodePath("AspectRatioContainer/VideoStreamPlayer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="AspectRatioContainer"]
+layout_mode = 2
+stream = ExtResource("3_2pwan")
+autoplay = true

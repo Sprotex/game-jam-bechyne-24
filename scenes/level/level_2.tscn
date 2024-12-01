@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="13_l1162"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="14_p8o8e"]
 [ext_resource type="Script" path="res://non_scene_scripts/next_scene_transition.gd" id="15_lptbr"]
-[ext_resource type="PackedScene" uid="uid://b6usbufo140m7" path="res://scenes/level_end.tscn" id="16_0r7vp"]
+[ext_resource type="PackedScene" uid="uid://b6usbufo140m7" path="res://scenes/level/level_end.tscn" id="16_0r7vp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ruprp"]
 size = Vector2(2522, 89)
