@@ -4,6 +4,7 @@ class_name AnimationPrioritiesPlayer
 @export var animated_sprite: AnimatedSprite2D
 @export var body: CharacterBody2D
 @export var flip_node: Node2D
+@export var attack: CharacterAttack
 
 var _current_priority := AnimationConstants.PRIORITY_RESET
 
@@ -13,6 +14,18 @@ func _ready() -> void:
 	animated_sprite.animation_looped.connect(_handle_animation_finished)
 	play(AnimationConstants.ANIMATION_IDLE, AnimationConstants.PRIORITY_RESET)
 
+
+func _handle_attack_animations(animation: String) -> void:
+	if animation == AnimationConstants.ANIMATION_LIGHT_ATTACK:
+		await get_tree().create_timer(0.2)
+		attack.create_box(0.5)
+		return
+	if animation == AnimationConstants.ANIMATION_HEAVY_ATTACK:
+		await get_tree().create_timer(0.2)
+		attack.create_box(0.5)
+		return
+
+
 ## Higher the priority animations overwrites lower priority ones.
 ## Except for [Constant AnimationConstants.PRIORITY_RESET]
 func play(animation: String, priority: int) -> bool:
@@ -20,6 +33,7 @@ func play(animation: String, priority: int) -> bool:
 		return false
 	animated_sprite.play(animation)
 	_current_priority = priority
+	_handle_attack_animations(animation)
 	return true
 
 

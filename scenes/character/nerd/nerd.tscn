@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dndit0ynl313x"]
+[gd_scene load_steps=15 format=3 uid="uid://dndit0ynl313x"]
 
 [ext_resource type="SpriteFrames" uid="uid://2i5yuhfffx2i" path="res://assets/animation/nerd.tres" id="1_u2x8v"]
 [ext_resource type="Script" path="res://scenes/character/nerd/ai_input.gd" id="3_w0yip"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="10_18ok4"]
 [ext_resource type="Script" path="res://scenes/character/nerd/waiting_for_distance_tracking.gd" id="11_anxx3"]
 [ext_resource type="Script" path="res://scenes/character/nerd/follow_player_logic.gd" id="11_gyf2i"]
+[ext_resource type="PackedScene" uid="uid://caw6c6jslina6" path="res://scenes/character/health_component.tscn" id="11_mh60q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cocjj"]
 radius = 19.0
@@ -98,8 +99,17 @@ collision_mask = 64
 position = Vector2(-1.55489e-05, -7)
 shape = SubResource("CapsuleShape2D_wbgey")
 
+[node name="HealthArea2D" parent="." instance=ExtResource("11_mh60q")]
+collision_layer = 64
+collision_mask = 32
+
+[node name="Health" parent="HealthArea2D" index="1" node_paths=PackedStringArray("node_to_free")]
+node_to_free = NodePath("../..")
+
 [connection signal="state_exited" from="StateChart/MovementLogic/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_exited"]
 [connection signal="state_processing" from="StateChart/MovementLogic/FollowPlayer" to="StateLogic/FollowPlayer" method="_on_follow_player_state_processing"]
 [connection signal="body_entered" from="StateLogic/WaitingForPlayerDistance/Area2D" to="StateLogic/WaitingForPlayerDistance" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="HitBoxArea2D" to="AIInput" method="_on_hit_box_area_2d_body_entered"]
 [connection signal="body_exited" from="HitBoxArea2D" to="AIInput" method="_on_hit_box_area_2d_body_exited"]
+
+[editable path="HealthArea2D"]
